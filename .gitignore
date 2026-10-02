@@ -1,0 +1,5 @@
+# FreeCAD backup files
+*.FCBak
+
+# FreeCAD recovery/temp files
+*.FCStd1
