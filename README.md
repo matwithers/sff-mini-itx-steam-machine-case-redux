@@ -42,13 +42,26 @@ The initial goals of this remix are:
 
 ### 1. Heat-set inserts
 
-Replace printed/self-tapping screw threads where practical with proper
-heat-set threaded inserts.
+**Status: Complete**
 
-The intention is to make frequently assembled parts more durable and allow
-normal machine screws to be used throughout the case.
+The original printed/self-tapping screw arrangement has been converted to use
+M3 heat-set threaded inserts where appropriate.
+
+The corresponding mating holes have also been enlarged to proper M3 clearance
+holes.
+
+Current standard dimensions used in the FreeCAD source are:
+
+- M3 heat-set insert bore: **4.7 mm**
+- M3 heat-set insert depth: **4.3 mm**
+- M3 clearance hole: **3.4 mm**
+
+These values are stored as FreeCAD spreadsheet parameters so they can be
+adjusted consistently across the modified parts if required.
 
 ### 2. LED light bar
+
+**Status: Planned**
 
 Add provision for an integrated LED light bar while keeping the external
 appearance of the case clean.
@@ -57,10 +70,24 @@ The mounting system and electronics are still under development.
 
 ### 3. 2.5-inch drive mounting
 
+**Status: Planned**
+
 Add proper internal mounting for one or more 2.5-inch SATA SSDs / hard drives.
 
 The aim is to add storage without significantly compromising airflow or the
 compact layout of the original case.
+
+## Current changes
+
+So far, the following modifications have been completed:
+
+- Converted suitable screw locations to M3 heat-set inserts
+- Enlarged mating holes to M3 clearance dimensions
+- Added reusable FreeCAD spreadsheet parameters for common hardware dimensions
+- Retained editable FreeCAD source files for modified parts
+- Exported updated printable geometry from the FreeCAD models
+
+Further changes will be added as the redesign progresses.
 
 ## Repository layout
 
@@ -81,6 +108,21 @@ organised as:
 └── docs/
     └── Notes, dimensions, assembly information and development documentation
 ```
+
+## FreeCAD workflow
+
+The original STL files are imported into FreeCAD and converted to usable solid
+geometry before modification.
+
+Where practical, modified parts use:
+
+- refined imported solids as Part Design base features
+- parametric sketches
+- spreadsheet-driven dimensions
+- Part Design pockets and other editable features
+
+This makes the modified files easier to maintain than working directly with
+successive STL edits.
 
 ## Work in progress
 
