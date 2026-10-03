@@ -36,6 +36,22 @@ case, with editable FreeCAD files retained alongside exported printable files.
 Once the redesign reaches a suitable state, the finished parts will also be
 published on Printables as a remix of the original model.
 
+## Current version
+
+**v0.3.0 — Fan mounting clearance**
+
+Completed:
+
+- M3 heat-set insert conversion
+- M3 clearance-hole conversion
+- Front and rear fan screw clearance-hole conversion
+
+Next:
+
+- Integrated LED light bar
+- 2.5-inch drive mounting
+- Improved rear GPU mounting
+
 ## Goals
 
 The current goals of this remix are:
@@ -61,16 +77,20 @@ adjusted consistently across the modified parts if required.
 
 ### 2. Fan screw clearance
 
-**Status: Planned**
+**Status: Complete**
 
-Increase the front and rear fan mounting holes so that standard PC fan screws
-pass freely through the printed case parts.
+The front and rear fan mounting holes have been enlarged so that standard PC
+fan screws pass freely through the printed case parts.
 
-The screws should bite into the plastic fan frame rather than cutting threads
-into the case itself.
+The screws are intended to bite into the plastic fan frame rather than cutting
+threads into the case itself.
 
-The final clearance diameter will be based on the actual fan screws used in the
-build.
+The fan screws used for sizing measured approximately **4.9 mm** across the
+thread, and the case clearance holes have been set to:
+
+- Fan screw clearance hole: **5.2 mm**
+
+This value is also stored as a FreeCAD spreadsheet parameter.
 
 ### 3. LED light bar
 
@@ -108,16 +128,16 @@ So far, the following modifications have been completed:
 
 - Converted suitable screw locations to M3 heat-set inserts
 - Enlarged mating holes to M3 clearance dimensions
+- Enlarged front and rear fan mounting holes to provide fan-screw clearance
 - Added reusable FreeCAD spreadsheet parameters for common hardware dimensions
 - Retained editable FreeCAD source files for modified parts
 - Exported updated printable geometry from the FreeCAD models
 
 Current development priority:
 
-1. Fan screw clearance
-2. LED light bar
-3. 2.5-inch drive mounting
-4. GPU rear mounting
+1. LED light bar
+2. 2.5-inch drive mounting
+3. GPU rear mounting
 
 ## Repository layout
 

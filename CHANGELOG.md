@@ -1,13 +1,20 @@
-# Changelog
-
-All notable changes to this project will be documented in this file.
-
 ## [Unreleased]
 
 ### Planned
 
 - Add integrated LED light bar support
 - Add mounting for 2.5-inch SATA drives
+- Improve rear GPU mounting
+
+## [0.3.0] - 2026-10-03
+
+### Changed
+
+- Enlarged front and rear fan mounting holes to provide clearance for standard
+  PC fan screws
+- Set fan screw clearance diameter to 5.2 mm
+- Added fan screw clearance as a reusable FreeCAD spreadsheet parameter
+- Updated exported printable geometry
 
 ## [0.2.0] - 2026-10-03
 
