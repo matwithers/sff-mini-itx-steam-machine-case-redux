@@ -38,7 +38,7 @@ published on Printables as a remix of the original model.
 
 ## Goals
 
-The initial goals of this remix are:
+The current goals of this remix are:
 
 ### 1. Heat-set inserts
 
@@ -59,7 +59,20 @@ Current standard dimensions used in the FreeCAD source are:
 These values are stored as FreeCAD spreadsheet parameters so they can be
 adjusted consistently across the modified parts if required.
 
-### 2. LED light bar
+### 2. Fan screw clearance
+
+**Status: Planned**
+
+Increase the front and rear fan mounting holes so that standard PC fan screws
+pass freely through the printed case parts.
+
+The screws should bite into the plastic fan frame rather than cutting threads
+into the case itself.
+
+The final clearance diameter will be based on the actual fan screws used in the
+build.
+
+### 3. LED light bar
 
 **Status: Planned**
 
@@ -68,7 +81,7 @@ appearance of the case clean.
 
 The mounting system and electronics are still under development.
 
-### 3. 2.5-inch drive mounting
+### 4. 2.5-inch drive mounting
 
 **Status: Planned**
 
@@ -76,6 +89,18 @@ Add proper internal mounting for one or more 2.5-inch SATA SSDs / hard drives.
 
 The aim is to add storage without significantly compromising airflow or the
 compact layout of the original case.
+
+### 5. GPU rear mounting
+
+**Status: Planned**
+
+Improve the rear GPU mounting arrangement.
+
+The current design does not appear to provide a practical way to secure the GPU
+bracket with a conventional retaining screw.
+
+The aim is to add a more conventional and accessible GPU fixing point while
+retaining compatibility with the compact case layout.
 
 ## Current changes
 
@@ -87,7 +112,12 @@ So far, the following modifications have been completed:
 - Retained editable FreeCAD source files for modified parts
 - Exported updated printable geometry from the FreeCAD models
 
-Further changes will be added as the redesign progresses.
+Current development priority:
+
+1. Fan screw clearance
+2. LED light bar
+3. 2.5-inch drive mounting
+4. GPU rear mounting
 
 ## Repository layout
 
