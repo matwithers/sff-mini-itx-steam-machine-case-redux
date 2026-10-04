@@ -33,22 +33,29 @@ The original design is supplied as STL files.
 This repository is primarily my working source tree for modifications to the
 case, with editable FreeCAD files retained alongside exported printable files.
 
+The aim is to progressively replace one-off STL editing with cleaner,
+parameter-driven FreeCAD features where practical.
+
 Once the redesign reaches a suitable state, the finished parts will also be
 published on Printables as a remix of the original model.
 
 ## Current version
 
-**v0.3.0 — Fan mounting clearance**
+**v0.4.0 — LED lightbar and unified front shell**
 
 Completed:
 
 - M3 heat-set insert conversion
 - M3 clearance-hole conversion
 - Front and rear fan screw clearance-hole conversion
+- Integrated LED lightbar aperture and diffuser channel
+- Separate parametric LED holder
+- LED holder M3 mounting system
+- Optional Steam Controller puck cutout
+- Standard and Steam Controller front-shell variants merged into one model
 
 Next:
 
-- Integrated LED light bar
 - 2.5-inch drive mounting
 - Improved rear GPU mounting
 
@@ -92,16 +99,58 @@ thread, and the case clearance holes have been set to:
 
 This value is also stored as a FreeCAD spreadsheet parameter.
 
-### 3. LED light bar
+### 3. LED lightbar
 
-**Status: Planned**
+**Status: Complete**
 
-Add provision for an integrated LED light bar while keeping the external
-appearance of the case clean.
+The front shell now includes an integrated LED lightbar system while preserving
+the overall external appearance of the original case.
 
-The mounting system and electronics are still under development.
+The lightbar design includes:
 
-### 4. 2.5-inch drive mounting
+- a front-facing LED aperture
+- a recessed diffuser channel
+- rear clearance for the LED module components
+- a separate removable LED holder
+- M3 heat-set insert mounting for the holder
+- recessed mounting screws in the front shell
+
+The LED holder is designed around three discrete LED modules.
+
+Current key dimensions include:
+
+- LED module length: **54 mm**
+- LED module count: **3**
+- LED aperture length: **165 mm**
+- LED aperture height: **5.5 mm**
+- Diffuser channel height: **9.0 mm**
+- LED holder depth: **5.0 mm**
+- LED holder side overlap: **5.0 mm**
+- LED holder top overlap: **2.0 mm**
+- LED holder bottom overlap: **12.0 mm**
+
+The LED holder mounting holes and the corresponding front-shell holes are
+derived from the same LED aperture geometry, keeping both parts aligned
+parametrically.
+
+### 4. Steam Controller puck support
+
+**Status: Complete**
+
+The Steam Controller puck front-shell variant has been merged into the main
+front-shell FreeCAD model.
+
+The puck opening was rebuilt as clean native FreeCAD sketch geometry rather
+than retaining the heavily faceted STL-derived outline.
+
+The puck opening can be enabled or disabled using the FreeCAD feature's
+**Suppressed** property, allowing both front-shell variants to be maintained in
+a single source model.
+
+This removes the need to maintain a separate duplicate Steam Controller
+front-shell file.
+
+### 5. 2.5-inch drive mounting
 
 **Status: Planned**
 
@@ -110,7 +159,7 @@ Add proper internal mounting for one or more 2.5-inch SATA SSDs / hard drives.
 The aim is to add storage without significantly compromising airflow or the
 compact layout of the original case.
 
-### 5. GPU rear mounting
+### 6. GPU rear mounting
 
 **Status: Planned**
 
@@ -129,15 +178,21 @@ So far, the following modifications have been completed:
 - Converted suitable screw locations to M3 heat-set inserts
 - Enlarged mating holes to M3 clearance dimensions
 - Enlarged front and rear fan mounting holes to provide fan-screw clearance
-- Added reusable FreeCAD spreadsheet parameters for common hardware dimensions
+- Added integrated LED lightbar support to the front shell
+- Added recessed diffuser and LED component clearance geometry
+- Added a separate parametric LED holder
+- Added M3 heat-set mounting for the LED holder
+- Added recessed front-shell screw mounting for the LED holder
+- Rebuilt the Steam Controller puck opening using clean native FreeCAD geometry
+- Merged standard and Steam Controller front-shell variants into one model
+- Added reusable FreeCAD spreadsheet parameters for common hardware and LED dimensions
 - Retained editable FreeCAD source files for modified parts
 - Exported updated printable geometry from the FreeCAD models
 
 Current development priority:
 
-1. LED light bar
-2. 2.5-inch drive mounting
-3. GPU rear mounting
+1. 2.5-inch drive mounting
+2. GPU rear mounting
 
 ## Repository layout
 
@@ -169,10 +224,29 @@ Where practical, modified parts use:
 - refined imported solids as Part Design base features
 - parametric sketches
 - spreadsheet-driven dimensions
-- Part Design pockets and other editable features
+- Part Design pads and pockets
+- reusable shared dimensions for matching features across multiple parts
+- optional features using FreeCAD suppression where useful
 
 This makes the modified files easier to maintain than working directly with
 successive STL edits.
+
+Some source geometry remains derived from complex STL meshes, so recomputing
+large models may be slower than with a fully native FreeCAD design.
+
+## Front-shell configuration
+
+The main front-shell model now incorporates multiple previously separate design
+options.
+
+The Steam Controller puck cutout can be enabled or disabled using the
+**Suppressed** property on its Part Design feature.
+
+The LED lightbar geometry and LED holder are maintained in the same FreeCAD
+document so their shared dimensions and mounting geometry remain aligned.
+
+This reduces duplicated source files and keeps related front-shell changes in
+one parametric model.
 
 ## Work in progress
 
