@@ -7,6 +7,13 @@
 - Add mounting for 2.5-inch SATA drives
 - Improve rear GPU mounting
 
+## [0.4.1] - 2026-10-07
+
+### Changed
+
+- Reversed the LED holder heat-set insert direction so the inserts are installed from the rear and are pulled further into the part under screw load
+- Enlarged the power-button rear recess around the retaining nut to provide additional usable thread engagement
+
 ## [0.4.0] - 2026-10-04
 
 ### Added

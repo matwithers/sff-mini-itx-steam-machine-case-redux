@@ -41,7 +41,7 @@ published on Printables as a remix of the original model.
 
 ## Current version
 
-**v0.4.0 — LED lightbar and unified front shell**
+**v0.4.1 — LED holder and power-button refinements**
 
 Completed:
 
@@ -53,6 +53,8 @@ Completed:
 - LED holder M3 mounting system
 - Optional Steam Controller puck cutout
 - Standard and Steam Controller front-shell variants merged into one model
+- LED holder heat-set insert direction revised for improved retention
+- Power-button nut recess enlarged for greater thread engagement
 
 Next:
 
