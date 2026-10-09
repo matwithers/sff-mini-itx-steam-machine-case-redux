@@ -33,15 +33,19 @@ The original design is supplied as STL files.
 This repository is primarily my working source tree for modifications to the
 case, with editable FreeCAD files retained alongside exported printable files.
 
-The aim is to progressively replace one-off STL editing with cleaner,
-parameter-driven FreeCAD features where practical.
+The project initially used refined STL-derived solids as the basis for further
+Part Design work. As the redesign has progressed, key parts are being rebuilt
+as clean native FreeCAD geometry instead.
+
+This makes the models smaller, easier to edit, faster to recompute, and less
+dependent on complex imported mesh topology.
 
 Once the redesign reaches a suitable state, the finished parts will also be
 published on Printables as a remix of the original model.
 
 ## Current version
 
-**v0.4.1 — LED holder and power-button refinements**
+**v0.5.0 — Native FreeCAD front-shell rebuild**
 
 Completed:
 
@@ -52,9 +56,12 @@ Completed:
 - Separate parametric LED holder
 - LED holder M3 mounting system
 - Optional Steam Controller puck cutout
+- Configurable 120 mm / 140 mm front fan support
 - Standard and Steam Controller front-shell variants merged into one model
 - LED holder heat-set insert direction revised for improved retention
 - Power-button nut recess enlarged for greater thread engagement
+- Front shell completely rebuilt as native parametric FreeCAD geometry
+- Access holes added behind magnet holders to aid magnet removal
 
 Next:
 
@@ -84,7 +91,7 @@ Current standard dimensions used in the FreeCAD source are:
 These values are stored as FreeCAD spreadsheet parameters so they can be
 adjusted consistently across the modified parts if required.
 
-### 2. Fan screw clearance
+### 2. Fan mounting and screw clearance
 
 **Status: Complete**
 
@@ -99,13 +106,26 @@ thread, and the case clearance holes have been set to:
 
 - Fan screw clearance hole: **5.2 mm**
 
-This value is also stored as a FreeCAD spreadsheet parameter.
+This value is stored as a FreeCAD spreadsheet parameter.
+
+The rebuilt front shell also includes separate configurable geometry for
+**120 mm** and **140 mm** fan installations.
+
+A single `Fan_Size` spreadsheet parameter controls suppression of the relevant
+fan aperture and screw-hole features, allowing the model to switch cleanly
+between the two fan sizes.
+
+The 140 mm fan remains offset toward the CPU / motherboard side, broadly
+preserving the airflow bias of the original design.
+
+The fan position has also been raised slightly in the rebuilt model to improve
+clearance around the LED holder.
 
 ### 3. LED lightbar
 
 **Status: Complete**
 
-The front shell now includes an integrated LED lightbar system while preserving
+The front shell includes an integrated LED lightbar system while preserving
 the overall external appearance of the original case.
 
 The lightbar design includes:
@@ -116,6 +136,7 @@ The lightbar design includes:
 - a separate removable LED holder
 - M3 heat-set insert mounting for the holder
 - recessed mounting screws in the front shell
+- wiring clearance for the LED modules
 
 The LED holder is designed around three discrete LED modules.
 
@@ -135,6 +156,10 @@ The LED holder mounting holes and the corresponding front-shell holes are
 derived from the same LED aperture geometry, keeping both parts aligned
 parametrically.
 
+The heat-set inserts in the LED holder are installed from the rear so that
+screw loading tends to pull the inserts further into the printed part rather
+than out of it.
+
 ### 4. Steam Controller puck support
 
 **Status: Complete**
@@ -145,14 +170,65 @@ front-shell FreeCAD model.
 The puck opening was rebuilt as clean native FreeCAD sketch geometry rather
 than retaining the heavily faceted STL-derived outline.
 
-The puck opening can be enabled or disabled using the FreeCAD feature's
-**Suppressed** property, allowing both front-shell variants to be maintained in
-a single source model.
+The puck opening is controlled by a spreadsheet-driven feature switch using the
+Part Design feature's **Suppressed** property.
 
-This removes the need to maintain a separate duplicate Steam Controller
-front-shell file.
+This allows both front-shell variants to be maintained in a single source model
+and removes the need for a separate duplicate Steam Controller front-shell
+file.
 
-### 5. 2.5-inch drive mounting
+### 5. Native FreeCAD front shell
+
+**Status: Complete**
+
+The front shell has been completely rebuilt as native parametric FreeCAD
+geometry.
+
+The previous front-shell model was based on an imported STL converted into a
+solid and then modified using Part Design features.
+
+The rebuilt model now uses native:
+
+- sketches
+- pads
+- pockets
+- Hole features
+- fillets
+- spreadsheet-driven dimensions
+- configurable suppressed features
+- shared hardware parameters
+
+No imported STL geometry is required for the rebuilt front shell.
+
+This reduced the FreeCAD source file size from approximately **12 MB** to around
+**477 KB**.
+
+The native rebuild also substantially improves:
+
+- recompute speed
+- editability
+- clarity of the feature tree
+- parameter reuse
+- resilience when changing dimensions
+- maintainability of future variants
+
+Repeated hardware features are now represented more directly where practical.
+For example, recessed M3 mounting holes use FreeCAD's Part Design **Hole**
+feature rather than separate through-hole and counterbore Pocket operations.
+
+### 6. Magnet holders
+
+**Status: Complete**
+
+The front-shell magnet holders have been rebuilt as native FreeCAD geometry.
+
+The magnet bosses and recesses are parameter-driven, and the rounded upper edge
+of each holder is generated from the boss and magnet diameters.
+
+Additional access holes have been added behind the magnet holders to make
+magnet removal easier during assembly, maintenance, or future replacement.
+
+### 7. 2.5-inch drive mounting
 
 **Status: Planned**
 
@@ -161,7 +237,7 @@ Add proper internal mounting for one or more 2.5-inch SATA SSDs / hard drives.
 The aim is to add storage without significantly compromising airflow or the
 compact layout of the original case.
 
-### 6. GPU rear mounting
+### 8. GPU rear mounting
 
 **Status: Planned**
 
@@ -180,14 +256,21 @@ So far, the following modifications have been completed:
 - Converted suitable screw locations to M3 heat-set inserts
 - Enlarged mating holes to M3 clearance dimensions
 - Enlarged front and rear fan mounting holes to provide fan-screw clearance
+- Added configurable 120 mm / 140 mm front fan support
 - Added integrated LED lightbar support to the front shell
 - Added recessed diffuser and LED component clearance geometry
 - Added a separate parametric LED holder
 - Added M3 heat-set mounting for the LED holder
+- Revised LED holder insert direction for improved mechanical retention
 - Added recessed front-shell screw mounting for the LED holder
+- Enlarged the rear power-button nut recess for improved thread engagement
 - Rebuilt the Steam Controller puck opening using clean native FreeCAD geometry
 - Merged standard and Steam Controller front-shell variants into one model
-- Added reusable FreeCAD spreadsheet parameters for common hardware and LED dimensions
+- Rebuilt the entire front shell as native parametric FreeCAD geometry
+- Removed the front shell's dependency on imported STL geometry
+- Added access holes behind magnet holders for easier magnet removal
+- Added reusable FreeCAD spreadsheet parameters for hardware, fan, LED,
+  magnet, USB, power-button and shell geometry
 - Retained editable FreeCAD source files for modified parts
 - Exported updated printable geometry from the FreeCAD models
 
@@ -195,6 +278,40 @@ Current development priority:
 
 1. 2.5-inch drive mounting
 2. GPU rear mounting
+
+## Parametric configuration
+
+The rebuilt front shell is designed around a shared FreeCAD spreadsheet.
+
+Common dimensions and configurable options are stored as parameters rather than
+being duplicated throughout individual sketches.
+
+Examples include:
+
+- shell dimensions
+- M3 clearance and heat-set dimensions
+- screwhead recess dimensions
+- fan position
+- fan size
+- fan screw-hole layout
+- USB opening dimensions
+- power-button geometry
+- magnet geometry
+- LED aperture geometry
+- LED holder dimensions
+
+Optional and mutually exclusive features are controlled using expressions on
+the Part Design **Suppressed** property.
+
+For example:
+
+- `Fan_Size = 120` enables the 120 mm fan aperture and screw pattern
+- `Fan_Size = 140` enables the 140 mm fan aperture and screw pattern
+- the Steam Controller puck can be enabled or disabled independently
+- LED-related features can be configured independently where required
+
+This allows multiple front-shell variants to be generated from a single source
+model.
 
 ## Repository layout
 
@@ -218,37 +335,67 @@ organised as:
 
 ## FreeCAD workflow
 
-The original STL files are imported into FreeCAD and converted to usable solid
-geometry before modification.
+The project started by importing the original STL files into FreeCAD, refining
+them into usable solids, and applying Part Design modifications on top.
 
-Where practical, modified parts use:
+That workflow is still used where appropriate for parts that have not yet been
+rebuilt.
 
-- refined imported solids as Part Design base features
+The preferred direction for major modified parts is now native FreeCAD
+geometry.
+
+Where practical, models use:
+
+- native Part Design Bodies
 - parametric sketches
 - spreadsheet-driven dimensions
 - Part Design pads and pockets
-- reusable shared dimensions for matching features across multiple parts
-- optional features using FreeCAD suppression where useful
+- Part Design Hole features for repeated hardware holes
+- shared parameters for matching geometry across multiple parts
+- feature suppression for configurable variants
+- fillets and finishing operations after the primary geometry is established
 
-This makes the modified files easier to maintain than working directly with
-successive STL edits.
+The rebuilt front shell is now fully native and no longer requires an STL-derived
+BaseFeature.
 
-Some source geometry remains derived from complex STL meshes, so recomputing
-large models may be slower than with a fully native FreeCAD design.
+This avoids much of the recompute overhead and topology complexity associated
+with performing repeated boolean operations on imported triangulated geometry.
 
 ## Front-shell configuration
 
-The main front-shell model now incorporates multiple previously separate design
-options.
+The front-shell model incorporates several previously separate design options
+within one parametric FreeCAD document.
 
-The Steam Controller puck cutout can be enabled or disabled using the
-**Suppressed** property on its Part Design feature.
+Current configurable features include:
+
+- 120 mm or 140 mm front fan geometry
+- optional Steam Controller puck cutout
+- LED lightbar geometry
+- matching LED holder and mounting features
 
 The LED lightbar geometry and LED holder are maintained in the same FreeCAD
-document so their shared dimensions and mounting geometry remain aligned.
+document so shared dimensions and mounting geometry remain aligned.
 
 This reduces duplicated source files and keeps related front-shell changes in
 one parametric model.
+
+## Test parts and hardware fit
+
+Small test parts are used where practical to validate hardware dimensions
+before committing to a full front-shell print.
+
+These test pieces allow checks for:
+
+- M3 screw clearance
+- screwhead recess diameter and depth
+- heat-set insert fit
+- magnet fit
+- power-button fit
+- USB opening dimensions
+- other press-fit and clearance-sensitive geometry
+
+This makes it easier to tune spreadsheet parameters for the actual printer,
+material and hardware without repeatedly printing the complete shell.
 
 ## Work in progress
 

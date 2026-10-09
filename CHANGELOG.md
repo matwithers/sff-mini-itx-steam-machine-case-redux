@@ -7,6 +7,22 @@
 - Add mounting for 2.5-inch SATA drives
 - Improve rear GPU mounting
 
+## [0.5.0] - 2026-10-09
+
+### Added
+
+- Added access holes behind the magnet holders to make magnet removal easier
+
+### Changed
+
+- Completely rebuilt the front shell as native parametric FreeCAD geometry
+- Removed dependency on imported STL geometry for the front shell
+- Recreated existing front-shell features using editable Part Design sketches and features
+- Retained configurable 120 mm / 140 mm fan support
+- Retained optional Steam Controller puck and LED lightbar features
+- Reduced the front-shell FreeCAD file size from approximately 12 MB to 477 KB
+- Improved model editability, recompute performance and long-term maintainability
+
 ## [0.4.1] - 2026-10-07
 
 ### Changed
