@@ -5,7 +5,24 @@
 ### Planned
 
 - Add mounting for 2.5-inch SATA drives
-- Improve rear GPU mounting
+
+## [0.6.0] - 2026-10-14
+
+### Added
+
+- Improved rear GPU mounting using an M3 heat-set insert
+- Updated printable STL exports generated from the rebuilt FreeCAD models
+
+### Changed
+
+- Rebuilt all case parts from scratch as native parametric FreeCAD models
+- Removed dependency on imported STL-derived solids across the project
+- Recreated existing geometry using editable sketches, pads, pockets, Hole features,
+  fillets, patterns and spreadsheet-driven parameters
+- Simplified and reduced FreeCAD source file sizes
+- Improved recompute performance, editability and long-term maintainability
+- Consolidated configurable variants where practical instead of maintaining
+  duplicate source models
 
 ## [0.5.0] - 2026-10-09
 
