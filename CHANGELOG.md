@@ -2,9 +2,13 @@
 
 ## [Unreleased]
 
-### Planned
+## [0.7.0] - 2026-10-16
 
-- Add mounting for 2.5-inch SATA drives
+### Added
+
+- Added a parametric 2.5-inch SATA drive mount
+- Added corresponding mounting holes in the rear panel
+- Added a FreeCAD assembly file for checking fit and alignment between case parts
 
 ## [0.6.0] - 2026-10-14
 

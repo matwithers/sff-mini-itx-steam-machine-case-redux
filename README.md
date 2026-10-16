@@ -4,7 +4,8 @@ A fully parametric FreeCAD remix of the
 **SFF Mini ITX Steam Machine Case v2 Airflow** by **3DCatt (@josedelamora)**.
 
 This repository contains editable FreeCAD source files, development versions,
-and printable exports for a redesigned version of the original case.
+printable exports, and an assembly model for a redesigned version of the
+original case.
 
 ## Original design
 
@@ -52,13 +53,14 @@ This provides:
 - easier modification of hardware clearances
 - configurable design variants
 - more robust long-term maintenance
+- easier fit checking using the FreeCAD assembly model
 
 Once the redesign reaches a suitable state, the finished parts will also be
 published on Printables as a remix of the original model.
 
 ## Current version
 
-**v0.6.0 — Full native FreeCAD rebuild**
+**v0.7.0 — SATA drive mount and assembly**
 
 Completed:
 
@@ -77,11 +79,14 @@ Completed:
 - Power-button nut recess enlarged for greater thread engagement
 - Magnet-holder access holes added to aid magnet removal
 - Improved rear GPU mounting using an M3 heat-set insert
+- Parametric 2.5-inch SATA drive mount
+- Corresponding drive-mount fixing holes added to the case
+- FreeCAD assembly file added for fit and clearance checking
 - Updated printable STL exports generated from the rebuilt models
 
 Next:
 
-- 2.5-inch drive mounting
+- Optional three-panel cover variant for easier printing
 
 ## Goals
 
@@ -255,12 +260,40 @@ GPU easier to install and remove securely.
 
 ### 8. 2.5-inch drive mounting
 
+**Status: Complete**
+
+A dedicated parametric mount has been added for a standard 2.5-inch SATA SSD or
+hard drive.
+
+The mount is designed to provide a secure fixing point without significantly
+compromising airflow or the compact internal layout of the case.
+
+The drive cavity provides approximately **0.5 mm clearance per side** to allow
+for print tolerance and small differences between drive enclosures while still
+keeping the drive securely located.
+
+Corresponding fixing holes have also been added to the case so the mount can be
+installed as part of the complete assembly.
+
+### 9. Optional three-panel cover
+
 **Status: Planned**
 
-Add proper internal mounting for one or more 2.5-inch SATA SSDs / hard drives.
+Create an alternative version of the main cover split into three separate
+printable panels.
 
-The aim is to add storage without significantly compromising airflow or the
-compact layout of the original case.
+The existing single-piece cover will remain available.
+
+The aim of the split version is to make the cover easier to print on a wider
+range of printers and reduce the risk and inconvenience associated with very
+long prints.
+
+The current one-piece cover takes approximately **24 hours** to print, so a
+multi-part alternative should make failed prints less costly and individual
+sections easier to replace or reprint.
+
+The split cover is intended to be an optional alternative rather than a
+replacement for the original one-piece design.
 
 ## Current changes
 
@@ -284,12 +317,15 @@ The redesign currently includes:
 - Magnet holders rebuilt as native parametric geometry
 - Magnet-removal access holes added
 - Rear GPU mounting improved using an M3 heat-set insert
+- Parametric 2.5-inch SATA drive mount added
+- Matching case fixing holes added for the drive mount
+- FreeCAD assembly file added
 - Reusable FreeCAD spreadsheet parameters added for hardware and case geometry
 - Updated printable STL exports generated from the native models
 
 Current development priority:
 
-1. 2.5-inch drive mounting
+1. Optional three-panel cover variant
 
 ## Parametric configuration
 
@@ -312,14 +348,15 @@ Examples include:
 - magnet geometry
 - LED aperture geometry
 - LED holder dimensions
+- drive-mount dimensions
 - fillet radii
 - repeated feature spacing
 
 Optional and mutually exclusive features can be controlled using expressions
 on the Part Design **Suppressed** property.
 
-This makes it possible to maintain several design variants from the same
-source model without duplicating complete FreeCAD files.
+This makes it possible to maintain several design variants from the same source
+model without duplicating complete FreeCAD files.
 
 ## Repository layout
 
@@ -332,7 +369,8 @@ organised as:
 │   └── Original/reference STL files
 │
 ├── freecad/
-│   └── Native editable FreeCAD source files
+│   ├── Native editable FreeCAD source files
+│   └── Assembly file
 │
 ├── stl/
 │   └── Exported printable STL files
@@ -428,9 +466,10 @@ material and hardware without repeatedly printing a complete case part.
 
 ## Assembly
 
-The individual printed parts are maintained as separate FreeCAD source files.
+A separate FreeCAD assembly file is included in the project.
 
-A separate FreeCAD Assembly can be used to bring those components together for:
+The individual printed parts remain maintained as separate FreeCAD source
+files, while the assembly brings them together for:
 
 - fit checking
 - clearance checking
@@ -439,8 +478,12 @@ A separate FreeCAD Assembly can be used to bring those components together for:
 - assembly planning
 - bill-of-materials generation
 
-Keeping the assembly separate allows individual parts to continue to be edited
-independently while changes can be reflected in the assembled model.
+Keeping the assembly separate allows individual part files to continue to be
+edited independently while those changes can be reflected in the assembled
+model.
+
+The assembly is intended to become the main reference for checking interactions
+between parts as the design evolves.
 
 ## Work in progress
 
