@@ -60,7 +60,7 @@ published on Printables as a remix of the original model.
 
 ## Current version
 
-**v0.7.0 — SATA drive mount and assembly**
+**v0.8.0 — Optional three-panel cover**
 
 Completed:
 
@@ -83,10 +83,8 @@ Completed:
 - Corresponding drive-mount fixing holes added to the case
 - FreeCAD assembly file added for fit and clearance checking
 - Updated printable STL exports generated from the rebuilt models
-
-Next:
-
 - Optional three-panel cover variant for easier printing
+
 
 ## Goals
 
