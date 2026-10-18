@@ -2,6 +2,23 @@
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-10-18
+
+### Added
+
+- Added an optional three-piece cover for easier printing
+  - separate top panel
+  - separate left panel
+  - separate right panel
+- Added printable STL exports for the new split-cover components
+
+### Changed
+
+- Adjusted front fan mounting-hole positions for improved alignment
+- Adjusted rear fan mounting-hole positions for improved alignment
+- Increased the LED aperture width from 3 modules to approximately 3.5 modules
+- Updated affected STL exports
+
 ## [0.7.0] - 2026-10-16
 
 ### Added

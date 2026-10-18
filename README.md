@@ -277,23 +277,25 @@ installed as part of the complete assembly.
 
 ### 9. Optional three-panel cover
 
-**Status: Planned**
+**Status: Complete**
 
-Create an alternative version of the main cover split into three separate
-printable panels.
+An alternative version of the main cover is available as three separate
+printable components:
 
-The existing single-piece cover will remain available.
+- top panel
+- left side panel
+- right side panel
 
-The aim of the split version is to make the cover easier to print on a wider
-range of printers and reduce the risk and inconvenience associated with very
-long prints.
+The original one-piece cover remains available.
 
-The current one-piece cover takes approximately **24 hours** to print, so a
-multi-part alternative should make failed prints less costly and individual
-sections easier to replace or reprint.
+The split version was created to make the cover easier and less risky to print.
+The original single-piece cover takes approximately 24 hours to print, so the
+three-piece version allows individual sections to be printed or replaced
+without repeating the entire cover.
 
-The split cover is intended to be an optional alternative rather than a
-replacement for the original one-piece design.
+The panels are joined using M3 countersunk machine screws and heat-set inserts,
+providing a rigid assembly while allowing the cover to remain removable and
+serviceable.
 
 ## Current changes
 
